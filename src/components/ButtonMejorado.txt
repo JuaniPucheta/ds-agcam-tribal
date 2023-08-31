@@ -1,0 +1,169 @@
+<template>
+  <div class="bg-slate-200 dark:bg-slate-700 flex justify-center items-center">
+    <div class="grid grid-cols-2 place-content-center items-center gap-4 h-screen my-5">
+      <!-- Columna de botones NORMALES -->
+      <div class="pr-10">
+        <div class="card flex flex-col gap-4 p-4">
+          <h1 class="text-center text-2xl font-sans mb-4">Vista Previa de Botones</h1>
+          <div class="grid grid-cols-3 gap-4">
+            <v-btn v-for="(button, index) in normalButtons"
+              :key="index"
+              @click="selectedButtonIndex = index"
+              :class="buttonClass(index)"
+              :color="button.color"
+            >{{ button.label }}</v-btn>
+          </div>
+        </div>
+      </div>
+      <!-- Columna de código -->
+      <div class="flex justify-center items-center">
+        <div class="card-code p-4">
+          <div class="flex justify-end mb-4">
+            <button @click="copyToClipboard" class="text-gray-600 hover:text-gray-800">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="..."/>
+              </svg>
+            </button>
+          </div>
+          <h1 class="text-center text-2xl font-sans mb-4">Código</h1>
+          <pre class="text-center">
+            <code class="whitespace-pre-line">
+              <!-- Código aquí -->
+              <span :class="highlightedCodeClass(index)" v-for="(button, index) in normalButtons" :key="index">
+                &lt;v-btn color="{{ button.color }}"&gt;{{ button.label }}&lt;/v-btn&gt;
+              </span>
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      <!-- Columna de botones CON ICONOS -->
+      <div class="pr-10">
+        <div class="card flex flex-col gap-4 p-4">
+          <h1 class="text-center text-2xl font-sans mb-4">Vista Previa de Botones</h1>
+          <div class="grid grid-cols-3 gap-4">
+            <v-btn v-for="(button, index) in iconButtons"
+              :key="index"
+              prepend-icon="mdi-information-outline"
+              @click="selectedButtonIndex = index"
+              :class="buttonClass(index)"
+              :color="button.color"
+            >{{ button.label }}</v-btn>
+          </div>
+        </div>
+      </div>
+      <!-- Columna de código -->
+      <div class="flex justify-center items-center">
+        <div class="card-code p-4">
+          <h1 class="text-center text-2xl font-sans mb-4">Código</h1>
+          <pre class="text-center">
+            <code class="whitespace-pre-line">
+              <!-- Código aquí -->
+              <span :class="highlightedCodeClass(index)" v-for="(button, index) in iconButtons" :key="index">
+                &lt;v-btn prepend-icon="{{ button.icon }}" color="{{ button.color }}"&gt;{{ button.label }}&lt;/v-btn&gt;
+              </span>
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      <!-- Otros elementos -->
+      <div class="bg-white">
+        <h1>asdasd</h1>
+      </div>
+      <div class="bg-red">
+        <h1>asdasd</h1>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    selectedButtonIndex: null,
+  }),
+  computed: {
+    normalButtons() {
+      return [
+        { label: 'Primary', color: 'primary' },
+        { label: 'Secondary', color: 'secondary' },
+        { label: 'Accent', color: 'accent' },
+        { label: 'Error', color: 'error' },
+        { label: 'Warning', color: 'warning' },
+        { label: 'Info', color: 'info' },
+        { label: 'Success', color: 'success' },
+      ];
+    },
+    iconButtons() {
+      return [
+        { label: 'Info', color: 'info', icon: 'mdi-information-outline' },
+        { label: 'Success', color: 'success', icon: 'mdi-check-circle' },
+        { label: 'Warning', color: 'warning', icon: 'mdi-alert' },
+        { label: 'Error', color: 'error', icon: 'mdi-alert-box' },
+      ];
+    },
+  },
+  methods: {
+    buttonClass(index) {
+      return {
+        'bg-blue-500': this.selectedButtonIndex === index,
+        'hover:bg-blue-400': this.selectedButtonIndex !== index,
+        'text-white': this.selectedButtonIndex === index,
+        'text-black': this.selectedButtonIndex !== index,
+      };
+    },
+    highlightedCodeClass(index) {
+      return this.selectedButtonIndex === index ? 'bg-yellow-200' : '';
+    },
+    copyToClipboard() {
+      const code = document.querySelector('code');
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(code);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand('copy');
+      selection.removeAllRanges();
+    },
+  },
+  name: 'ButtonComponent',
+};
+</script>
+
+<style scoped>
+.card {
+  @apply bg-gradient-to-br from-blue-100 to-blue-200;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+pre {
+  background: #f4f4f4;
+  border: 4px solid #ddd;
+  border-left: 3px solid #f36d33;
+  color: #666;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+  display: block;
+  word-wrap: break-word;
+}
+
+.card-code {
+  @apply bg-gradient-to-br from-blue-100 to-blue-200;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 500px; /* Fija el ancho de la tarjeta */
+}
+
+/* Clase para resaltar el código seleccionado */
+.bg-yellow-200 {
+  background-color: #fee05b; /* Cambia el color de resaltado según tus preferencias */
+}
+</style>
