@@ -163,8 +163,8 @@
       ],
       cruds: [
         ['Login', 'mdi-plus-outline', '/components/login-form'],
-        ['Register', 'mdi-file-outline'],
-        ['Forget-password', 'mdi-update'],
+        ['Register', 'mdi-file-outline', '/components/register-form'],
+        ['Forget-password', 'mdi-update', '/components/forget-password'],
       ],
     }),
   }

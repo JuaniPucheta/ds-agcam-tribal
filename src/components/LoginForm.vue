@@ -18,13 +18,13 @@
       <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
         Contraseña
 
-        <a
-          class="text-caption text-decoration-none text-blue"
-          href="#"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          ¿Olvidó su contraseña?</a>
+        <router-link to="/components/forget-password">
+          <a
+            class="text-caption text-decoration-none text-blue"
+            rel="noopener noreferrer"
+          >
+            ¿Olvidó su contraseña?</a>
+        </router-link>
       </div>
 
       <v-text-field
@@ -47,32 +47,23 @@
         </v-card-text>
       </v-card>
 
-      <v-btn
-        block
-        class="mb-8"
-        color="blue"
-        size="large"
-        variant="tonal"
-      >
-        Iniciar sesión
-      </v-btn>
+      <router-link to="/">
+        <v-btn
+          block
+          class="mb-8"
+          color="blue"
+          size="large"
+          variant="tonal"
+        >
+          Iniciar sesión
+        </v-btn>
+      </router-link>
 
       <v-card-text class="text-center">
-        <a
-          class="text-blue text-decoration-none"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Regístrese ahora <v-icon icon="mdi-chevron-right"></v-icon>
-        </a>
-      </v-card-text>
-
-      <!-- <v-card-text class="text-center">
-         Agregar enlace para ir a la página de registro
-        <router-link to="/register-form" class="text-blue text-decoration-none">
+        <router-link to="/components/register-form" class="text-blue text-decoration-none">
           Regístrese ahora <v-icon icon="mdi-chevron-right"></v-icon>
         </router-link>
-      </v-card-text> -->
+      </v-card-text>
 
     </v-card>
   </div>
