@@ -17,6 +17,16 @@ const routes = [
         component: () => import('@/components/Button.vue'),
       },
       {
+        path: '/components/input',
+        name: 'InputComponent',
+        component: () => import('@/components/Input.vue'),
+      },
+      {
+        path: '/components/login-form',
+        name: 'LoginFormComponent',
+        component: () => import('@/components/LoginForm.vue'),
+      },
+      {
         path: '/views/about',
         name: 'AboutComponent',
         component: () => import('@/views/About.vue'),

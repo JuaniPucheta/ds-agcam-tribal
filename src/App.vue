@@ -4,6 +4,7 @@
       <v-spacer></v-spacer>
 
       <v-btn
+        class="bg-red-300"
         @click="toggleDark()"
       >
         <v-icon>mdi-toggle-switch</v-icon>
@@ -96,11 +97,12 @@
             </template>
 
             <v-list-item
-              v-for="([title, icon], i) in cruds"
+              v-for="([title, icon, to], i) in cruds"
               :key="i"
               :value="title"
               :title="title"
               :prepend-icon="icon"
+              :to=to
               class="text-dark dark:text-white"
             ></v-list-item>
           </v-list-group>
@@ -160,7 +162,7 @@
         ['Text Area', 'mdi-cog-outline'],
       ],
       cruds: [
-        ['Login', 'mdi-plus-outline'],
+        ['Login', 'mdi-plus-outline', '/components/login-form'],
         ['Register', 'mdi-file-outline'],
         ['Forget-password', 'mdi-update'],
       ],

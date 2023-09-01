@@ -124,6 +124,8 @@
 export default {
   data: () => ({
     selectedButtonIndex: null,
+    selectedButtonIconIndex: null,
+    selectedButtonRoundedIndex: null,
   }),
   methods: {
     buttonClass(index) {
@@ -151,13 +153,13 @@ export default {
       };
     },
     highlightedCodeClass(index) {
-      return this.selectedButtonIndex === index ? 'bg-yellow-200' : '';
+      return this.selectedButtonIndex === index ? 'bg-blue-200' : '';
     },
     highlightedCodeIconClass(index) {
       return this.selectedButtonIconIndex === index ? 'bg-yellow-200' : '';
     },
     highlightedCodeRoundedClass(index) {
-      return this.selectedButtonRoundedIndex === index ? 'bg-yellow-200' : '';
+      return this.selectedButtonRoundedIndex === index ? 'bg-green-200' : '';
     },
     copyToClipboard() {
       const code = document.querySelector('code');

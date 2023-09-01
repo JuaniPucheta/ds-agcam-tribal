@@ -1,0 +1,86 @@
+<template>
+  <div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="bg-white p-8 rounded shadow-md w-full sm:w-96">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Inicio de Sesión</h2>
+
+      <form @submit.prevent="login">
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Correo Electrónico</label>
+          <input
+            type="email"
+            id="email"
+            v-model="formData.email"
+            class="w-full px-3 py-2 rounded border focus:outline-none focus:border-blue-500"
+            placeholder="Correo Electrónico"
+            required
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            v-model="formData.password"
+            class="w-full px-3 py-2 rounded border focus:outline-none focus:border-blue-500"
+            placeholder="Contraseña"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-4"
+        >
+          Iniciar Sesión
+        </button>
+
+        <!-- Ingresar con Google -->
+        <button
+          type="button"
+          class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+          @click="loginWithGoogle"
+        >
+          Ingresar con Google
+        </button>
+      </form>
+
+      <!-- ¿Olvidaste tu contraseña? -->
+      <div class="mt-4 text-center">
+        <a href="#" class="text-blue-500 hover:underline">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <!-- Sign Up -->
+      <div class="mt-4 text-center">
+        <p class="text-gray-700">¿No tienes una cuenta? <a href="#" class="text-blue-500 hover:underline">Regístrate</a></p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      formData: {
+        email: '',
+        password: '',
+      },
+    };
+  },
+  methods: {
+    login() {
+      // Agrega aquí la lógica de inicio de sesión
+      console.log('Datos de inicio de sesión:', this.formData);
+    },
+    loginWithGoogle() {
+      // Agrega aquí la lógica para iniciar sesión con Google
+      console.log('Iniciando sesión con Google...');
+    },
+  },
+};
+</script>
+
+<style scoped>
+/* Puedes agregar estilos específicos para este componente si es necesario */
+</style>
