@@ -2,15 +2,14 @@
 <template>
   <v-container class="bg-slate-200 dark:bg-slate-700 flex items-center justify-center h-screen">
     <v-row>
-      <v-col cols="4" v-for="(set, index) in messageSets" :key="index">
-        <v-card width="400" class="mb-4">
+      <v-col cols="12" md="6" lg="4" v-for="(set, index) in messageSets" :key="index">
+        <v-card class="mb-4">
           <v-img
             height="200"
             :src="set.imageSrc"
             cover
-            class="relative"
           >
-            <v-toolbar color="rgba(0, 0, 0, 0)" theme="dark">
+            <v-toolbar color="rgba(0, 0, 0, 0)" dark>
               <v-toolbar-title class="text-h6 text-white">
                 {{ set.title }}
               </v-toolbar-title>
@@ -36,8 +35,6 @@
                   </div>
                   <div>{{ message.message }}</div>
                 </div>
-                <!-- Asegúrate de que estás usando _ctx.openDocumentation -->
-                <!-- <v-btn color="primary" @click="openDocumentation(message.link)">Ver Documentación</v-btn> -->
               </v-timeline-item>
 
             </v-timeline>
@@ -51,6 +48,7 @@
 <script>
 export default {
   data: () => ({
+    isMobile: false,
     methods: {
       openDocumentation(link) {
         window.location.href = link;
@@ -102,6 +100,7 @@ export default {
         ],
       },
     ],
+
   })
 }
 </script>

@@ -3,12 +3,11 @@
     <v-system-bar class="bg-slate-200 dark:bg-slate-800">
       <v-spacer></v-spacer>
 
-      <v-btn
-        class="bg-red-300"
+      <v-icon
+        icon="mdi-toggle-switch"
+        class="dark:bg-white bg-gray-400 w-12"
         @click="toggleDark()"
-      >
-        <v-icon>mdi-toggle-switch</v-icon>
-      </v-btn>
+      />
 
     </v-system-bar>
 
@@ -18,12 +17,13 @@
         class="pa-4 bg-slate-200 dark:bg-slate-800"
       >
         <v-avatar
+          image="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
           class="mb-4"
           color="grey-darken-1"
           size="64"
         ></v-avatar>
 
-        <div>john@google.com</div>
+        <div>messi@messi.com</div>
         <span>
           {{ isDark ? 'Dark' : 'Light'  }} Mode
         </span>
@@ -50,8 +50,8 @@
             <template v-slot:activator="{ props }">
               <v-list-item
                 v-bind="props"
-                prepend-icon="mdi-account-multiple-outline"
-                class="text-dark dark:text-white"
+                prepend-icon="mdi-button-cursor"
+                class="text-dark dark:text-white reduce-padding-left"
                 title="Button"
               ></v-list-item>
             </template>
@@ -71,18 +71,19 @@
             <template v-slot:activator="{ props }">
               <v-list-item
                 v-bind="props"
-                prepend-icon="mdi-cog-outline"
+                prepend-icon="mdi-label-outline"
                 title="Inputs"
                 class="text-dark dark:text-white"
               ></v-list-item>
             </template>
 
             <v-list-item
-              v-for="([title, icon], i) in inputs"
+              v-for="([title, icon, to], i) in inputs"
               :key="i"
               :title="title"
               :prepend-icon="icon"
               :value="title"
+              :to="to"
               class="text-dark dark:text-white"
             ></v-list-item>
           </v-list-group>
@@ -90,6 +91,7 @@
           <v-list-group value="Auth">
             <template v-slot:activator="{ props }">
               <v-list-item
+                prepend-icon="mdi-form-select"
                 v-bind="props"
                 title="Auth"
                 class="text-dark dark:text-white"
@@ -108,18 +110,35 @@
           </v-list-group>
         </v-list-group>
 
+        <!--!TABLES en sidebar-->
+        <v-list-group value="Tables">
+          <template v-slot:activator="{ props }">
+              <v-list-item
+                v-bind="props"
+                prepend-icon="mdi-table-account"
+                class="text-dark dark:text-white reduce-padding-left"
+                title="Tables"
+              ></v-list-item>
+            </template>
+
+            <v-list-item
+              v-for="([title, icon, to], i) in tables"
+              :key="i"
+              :title="title"
+              :to=to
+              :prepend-icon="icon"
+              :value="title"
+              class="text-dark dark:text-white"
+            ></v-list-item>
+
+        </v-list-group>
+
+
         <!--!ABOUT en sidebar-->
         <v-list-item
           class="text-dark dark:text-white"
           prepend-icon="mdi-square"
           title="About"
-          >
-        </v-list-item>
-
-        <v-list-item
-          class="text-dark dark:text-white"
-          prepend-icon="mdi-square"
-          title="Otro About"
           :to="'/views/about'"
           >
         </v-list-item>
@@ -154,19 +173,28 @@
       drawer: null,
       open: ['Components'],
       buttons: [
-        ['Button', 'mdi-account-multiple-outline', '/components/button'],
-        ['Button Outline', 'mdi-cog-outline', '/components/button-outline'],
+        ['Button', 'mdi-gesture-tap-button', '/components/button'],
       ],
       inputs: [
-        ['Text Field', 'mdi-account-multiple-outline'],
-        ['Text Area', 'mdi-cog-outline'],
+        ['Some Inputs', 'mdi-account-multiple-outline', '/components/inputs'],
       ],
       cruds: [
-        ['Login', 'mdi-plus-outline', '/components/login-form'],
-        ['Register', 'mdi-file-outline', '/components/register-form'],
-        ['Forget-password', 'mdi-update', '/components/forget-password'],
+        ['Login', 'mdi-login', '/components/login-form'],
+        ['Register', 'mdi-account-plus', '/components/register-form'],
+        ['Forget-password', 'mdi-lock-question', '/components/forget-password'],
       ],
+      tables: [
+        ['Tables', 'mdi-table', '/components/table'],
+        ['TablesActions', 'mdi-table-cog', '/components/table-actions']
+      ]
     }),
   }
 </script>
 
+<style>
+
+  .v-list-group__items .v-list-item {
+    padding-inline-start: 16px !important;
+  }
+
+</style>

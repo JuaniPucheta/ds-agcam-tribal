@@ -37,6 +37,21 @@ const routes = [
         component: () => import('@/components/ForgetPassword.vue'),
       },
       {
+        path: '/components/inputs',
+        name: 'InputsComponent',
+        component: () => import('@/components/Inputs.vue'),
+      },
+      {
+        path: '/components/table',
+        name: 'TablesComponent',
+        component: () => import('@/components/Tables.vue'),
+      },
+      {
+        path: '/components/table-actions',
+        name: 'TableActionComponent',
+        component: () => import('@/components/TablesActions.vue'),
+      },
+      {
         path: '/views/about',
         name: 'AboutComponent',
         component: () => import('@/views/About.vue'),
