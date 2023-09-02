@@ -1,97 +1,123 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="dark:bg-slate-800 h-screen grid items-center">
-    <v-card
-      class="mx-auto pa-3 pb-3 dark:bg-slate-300"
-      elevation="8"
-      width="448"
-      rounded="lg"
-    >
-      <v-responsive
-        class="dark:bg-white"
+
+    <div class="grid grid-cols-2 place-content-center">
+      <v-card
+        class="mx-auto pa-3 pb-3 dark:bg-slate-300"
+        elevation="8"
+        width="448"
+        rounded="lg"
       >
-        <v-text-field
-          v-model="model"
-          clearable
-          hide-details="auto"
-          label="Campo 1"
-        ></v-text-field>
-      </v-responsive>
-    </v-card>
+        <v-responsive class="dark:bg-white">
+          <v-text-field
+            v-model="model"
+            clearable
+            hide-details="auto"
+            label="Campo 1"
+          ></v-text-field>
+        </v-responsive>
+      </v-card>
 
-    <v-card
-      class="mx-auto pa-3 pb-3 dark:bg-slate-300"
-      elevation="8"
-      width="448"
-      rounded="lg"
-    >
-    <v-col>
-      <v-text-field
-        class="dark:bg-white"
-        hide-details="auto"
-        label="Regular"
-        placeholder="Placeholder"
-      ></v-text-field>
-    </v-col>
+      <!-- Codigo de Campo 1 -->
+      <v-card
+        class="mx-auto mt-4 mb-8 dark:bg-slate-300"
+        elevation="8"
+        width="448"
+        rounded="lg"
+      >
+          <pre class="text-center">
+              <code class="whitespace-pre-line">
+                <span>
+                  &lt;v-responsive class="dark:bg-white"&gt;
+                  &lt;v-text-field
+                    v-model="model"
+                    clearable
+                    hide-details="auto"
+                    label="Campo 1"
+                  &gt;&lt;/v-text-field&gt;
+                  &lt;/v-responsive&gt;
+                </span>
+              </code>
+            </pre>
+      </v-card>
 
-    <v-col>
-      <v-text-field
-        class="dark:bg-white"
-        hide-details="auto"
-        label="Solo"
-        variant="solo"
-        placeholder="Placeholder"
-      ></v-text-field>
-      </v-col>
+      <v-card
+        class="mx-auto pa-3 pb-3 dark:bg-slate-300"
+        elevation="8"
+        width="448"
+        rounded="lg"
+      >
+        <v-col v-for="variant in variants" :key="variant.label">
+          <v-text-field
+            class="dark:bg-white"
+            hide-details="auto"
+            :label="variant.label"
+            :placeholder="variant.placeholder"
+            :variant="variant.variant"
+          ></v-text-field>
+        </v-col>
+      </v-card>
 
-      <v-col>
-        <v-text-field
-          class="dark:bg-white"
-          hide-details="auto"
-          label="Filled"
-          placeholder="Placeholder"
-          variant="filled"
-        ></v-text-field>
-      </v-col>
+      <!-- Codigo de Variant -->
+      <v-card
+        class="mx-auto mt-4 mb-8 dark:bg-slate-300"
+        elevation="8"
+        width="448"
+        rounded="lg"
+      >
+          <pre class="text-center">
+              <code class="whitespace-pre-line">
+                <span>
+                  &lt;v-col v-for="variant in variants" :key="variant.label"&gt;
+                  &lt;v-text-field
+                    class="dark:bg-white"
+                    hide-details="auto"
+                    :label="variant.label"
+                    :placeholder="variant.placeholder"
+                    :variant="variant.variant"
+                  &gt;&lt;/v-text-field&gt;
+                  &lt;/v-col&gt;
+                </span>
+              </code>
+            </pre>
+      </v-card>
 
-      <v-col>
-        <v-text-field
-          class="dark:bg-white"
-          hide-details="auto"
-          label="Outlined"
-          placeholder="Placeholder"
-          variant="outlined"
-        ></v-text-field>
-      </v-col>
-
-      <v-col>
-        <v-text-field
-          class="dark:bg-white"
-          hide-details="auto"
-          label="Plain"
-          placeholder="Placeholder"
-          variant="plain"
-        ></v-text-field>
-      </v-col>
-
-      <v-col>
-        <v-text-field
-          class="dark:bg-white"
-          hide-details="auto"
-          label="Underlined"
-          placeholder="Placeholder"
-          variant="underlined"
-        ></v-text-field>
-      </v-col>
-    </v-card>
-
+    </div>
   </div>
 </template>
 
 <script>
-  export default {
-    data: () => ({
-      model: 'La cruz borra lo escrito -->',
-    }),
-  }
+export default {
+  data: () => ({
+    model: 'La cruz borra lo escrito -->',
+    variants: [
+      { label: 'Regular', placeholder: 'Placeholder', variant: null },
+      { label: 'Solo', placeholder: 'Placeholder', variant: 'solo' },
+      { label: 'Filled', placeholder: 'Placeholder', variant: 'filled' },
+      { label: 'Outlined', placeholder: 'Placeholder', variant: 'outlined' },
+      { label: 'Plain', placeholder: 'Placeholder', variant: 'plain' },
+      { label: 'Underlined', placeholder: 'Placeholder', variant: 'underlined' },
+    ],
+  }),
+}
 </script>
+
+<style>
+pre {
+  background: #f4f4f4;
+    border: 4px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+}
+</style>
