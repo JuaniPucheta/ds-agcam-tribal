@@ -29,7 +29,7 @@
       </router-link>
 
       <v-card-text class="text-center">
-        <router-link to="/components/login-form" class="text-blue text-decoration-none">
+        <router-link to="@/components/login-form" class="text-blue text-decoration-none">
           Volver atrás <v-icon icon="mdi-chevron-right"></v-icon>
         </router-link>
       </v-card-text>
