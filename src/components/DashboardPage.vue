@@ -35,7 +35,15 @@
                   <div class="font-weight-normal">
                     <strong>{{ message.from }}</strong> @{{ message.time }}
                   </div>
-                  <div>{{ message.message }}</div>
+                  <div class="mt-2">
+                    <v-btn
+                      :color="message.color"
+                      text
+                      @click="openDocumentation(message.link)"
+                    >
+                      Documentación
+                    </v-btn>
+                  </div>
                 </div>
               </v-timeline-item>
 
@@ -49,14 +57,15 @@
 
 <script>
 export default {
+  methods: {
+    openDocumentation(link) {
+        // Abrir una nueva ventana o pestaña con la URL proporcionada
+        window.open(link, '_blank');
+    }
+  },
   data: () => ({
     name: 'DashboardPage',
     isMobile: false,
-    methods: {
-      openDocumentation(link) {
-        window.location.href = link;
-      }
-    },
     messageSets: [
       {
         title: 'Vue',
@@ -87,6 +96,7 @@ export default {
             time: '30/08/23',
             message: 'Documentación',
             color: 'deep-purple-lighten-1',
+            link: 'https://tailwindcss.com/docs/installation',
           },
         ],
       },
@@ -99,6 +109,7 @@ export default {
             time: '30/08/23',
             message: 'Documentación',
             color: 'deep-purple-lighten-1',
+            link: 'https://vitejs.dev/guide/',
           },
         ],
       },
