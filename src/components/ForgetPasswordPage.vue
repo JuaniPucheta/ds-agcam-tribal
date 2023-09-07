@@ -75,7 +75,7 @@
 
 <script>
   export default {
-    name: 'ForgetPasswordComponent',
+    name: 'ForgetPasswordPage',
     data: () => ({
       showConfirmationCard: false,
     }),

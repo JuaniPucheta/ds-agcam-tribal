@@ -1,5 +1,4 @@
 <template>
-  <!-- <div class="bg-slate-200 dark:bg-slate-700 flex justify-center items-center h-screen"> -->
   <div class="bg-slate-200 dark:bg-slate-700 flex justify-center items-center">
     <div class="grid sm:grid-cols-1 lg:grid-cols-2 items-center gap-4 my-4">
       <!--! Columna de botones NORMALES -->
@@ -172,7 +171,7 @@ export default {
       selection.removeAllRanges();
     },
   },
-  name: 'ButtonComponent',
+  name: 'ButtonPage',
 };
 </script>
 

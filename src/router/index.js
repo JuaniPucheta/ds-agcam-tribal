@@ -9,82 +9,52 @@ const routes = [
       {
         path: '',
         name: 'Home',
-        component: () => import('@/views/Home.vue'),
-        meta: {
-          title: 'Home',
-        }
+        component: () => import('../views/HomePage.vue'),
       },
       {
         path: '/components/button',
-        name: 'ButtonComponent',
-        component: () => import('@/components/Button.vue'),
-        meta: {
-          title: 'Button',
-        }
+        name: 'ButtonPage',
+        component: () => import('../components/ButtonPage.vue'),
       },
       {
         path: '/components/input',
-        name: 'InputComponent',
-        component: () => import('@/components/Input.vue'),
-        meta: {
-          title: 'Input',
-        }
+        name: 'InputPage',
+        component: () => import('../components/InputsPage.vue'),
       },
       {
         path: '/components/login-form',
-        name: 'LoginFormComponent',
-        component: () => import('@/components/LoginForm.vue'),
-        meta: {
-          title: 'Login Form',
-        }
+        name: 'LoginFormPage',
+        component: () => import('../components/LoginFormPage.vue'),
       },
       {
         path: '/components/register-form',
-        name: 'RegisterFormComponent',
-        component: () => import('@/components/RegisterForm.vue'),
-        meta: {
-          title: 'Register Form',
-        }
+        name: 'RegisterFormPage',
+        component: () => import('../components/RegisterFormPage.vue'),
       },
       {
         path: '/components/forget-password',
-        name: 'ForgetPasswordComponent',
-        component: () => import('@/components/ForgetPassword.vue'),
-        meta: {
-          title: 'Forget Password',
-        }
+        name: 'ForgetPasswordPage',
+        component: () => import('../components/ForgetPasswordPage.vue'),
       },
       {
         path: '/components/inputs',
-        name: 'InputsComponent',
-        component: () => import('@/components/Inputs.vue'),
-        meta: {
-          title: 'Inputs',
-        }
+        name: 'InputsPage',
+        component: () => import('../components/InputsPage.vue'),
       },
       {
         path: '/components/table',
-        name: 'TablesComponent',
-        component: () => import('@/components/Tables.vue'),
-        meta: {
-          title: 'Tables',
-        }
+        name: 'TablesPage',
+        component: () => import('../components/TablesPage.vue'),
       },
       {
         path: '/components/table-actions',
-        name: 'TableActionComponent',
-        component: () => import('@/components/TablesActions.vue'),
-        meta: {
-          title: 'Table Actions',
-        }
+        name: 'TableActionPage',
+        component: () => import('../components/TablesActionsPage.vue'),
       },
       {
         path: '/views/about',
-        name: 'AboutComponent',
-        component: () => import('@/views/About.vue'),
-        meta: {
-          title: 'About',
-        }
+        name: 'AboutPage',
+        component: () => import('../views/AboutPage.vue'),
       },
     ],
   },

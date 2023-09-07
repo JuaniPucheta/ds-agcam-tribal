@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/valid-v-slot -->
 <template>
   <div class="dark:bg-slate-700 h-screen flex justify-center items-center">
     <v-row
@@ -144,6 +143,7 @@
                     </v-dialog>
                   </v-toolbar>
                 </template>
+                <!-- eslint-disable-next-line vue/valid-v-slot -->
                 <template v-slot:item.actions="{ item }">
                   <v-icon
                     size="small"
@@ -176,6 +176,7 @@
 <script>
   export default {
     data: () => ({
+      name: 'TablesActionsPage',
       dialog: false,
       dialogDelete: false,
       headers: [

@@ -86,7 +86,7 @@
 
 <script>
   export default {
-    name: 'LoginFormComponent',
+    name: 'LoginFormPage',
     data: () => ({
       visible: false,
     }),

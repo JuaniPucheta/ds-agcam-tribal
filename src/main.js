@@ -3,7 +3,7 @@ import App from './App.vue'
 import './assets/input.css'
 import router from './router' // Importa tu configuración de Vue Router
 import Vue2Transitions from 'vue2-transitions'
-import { registerPlugins } from '@/plugins'
+import { registerPlugins } from './plugins'
 
 const app = createApp(App)
 

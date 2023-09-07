@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="dark:bg-slate-800 grid my-5 lg:grid-cols-2 sm:grid-cols-1 items-center">
       <v-card
@@ -94,6 +93,7 @@
 <script>
 export default {
   data: () => ({
+    name: 'InputsPage',
     model: 'La cruz borra lo escrito -->',
     variants: [
       { label: 'Regular', placeholder: 'Placeholder', variant: null },

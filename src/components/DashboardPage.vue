@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <v-container class="bg-slate-200 dark:bg-slate-700 grid grid-cols-1 items-center h-screen"> <!-- columna -->
     <v-row>
@@ -51,6 +50,7 @@
 <script>
 export default {
   data: () => ({
+    name: 'DashboardPage',
     isMobile: false,
     methods: {
       openDocumentation(link) {

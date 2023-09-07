@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="dark:bg-slate-700 h-screen flex justify-center items-center">
     <v-row
