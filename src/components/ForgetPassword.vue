@@ -6,6 +6,20 @@
       width="448"
       rounded="lg"
     >
+        <!-- Enlace del codigo -->
+        <v-card-actions class="justify-center">
+          <v-btn
+            class="text-decoration-none"
+            color="blue"
+            href="https://github.com/JuaniPucheta/ds-agcam-tribal/blob/main/src/components/ForgetPassword.vue"
+            target="_blank"
+            text
+          >
+            <v-icon left>mdi-github</v-icon>
+            Código en Github
+          </v-btn>
+        </v-card-actions>
+
       <div class="text-subtitle-1 text-medium-emphasis">Ingrese su correo electrónico</div>
 
       <v-text-field
@@ -29,7 +43,7 @@
       </router-link>
 
       <v-card-text class="text-center">
-        <router-link to="@/components/login-form" class="text-blue text-decoration-none">
+        <router-link to="/components/login-form" class="text-blue text-decoration-none">
           Volver atrás <v-icon icon="mdi-chevron-right"></v-icon>
         </router-link>
       </v-card-text>

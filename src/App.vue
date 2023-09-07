@@ -1,17 +1,6 @@
 <template>
   <v-app>
-    <v-system-bar class="bg-slate-200 dark:bg-slate-800">
-      <v-spacer></v-spacer>
-
-      <v-icon
-        icon="mdi-toggle-switch"
-        class="dark:bg-white bg-gray-400 w-12"
-        @click="toggleDark()"
-      />
-
-    </v-system-bar>
-
-    <v-navigation-drawer v-model="drawer" class="bg-slate-200 dark:bg-slate-800">
+    <v-navigation-drawer v-model="drawer" class="bg-slate-300 dark:bg-slate-800">
       <v-sheet
         color="grey-lighten-4"
         class="pa-4 bg-slate-200 dark:bg-slate-800"
@@ -24,9 +13,6 @@
         ></v-avatar>
 
         <div>messi@messi.com</div>
-        <span>
-          {{ isDark ? 'Dark' : 'Light'  }} Mode
-        </span>
       </v-sheet>
 
       <v-divider></v-divider>
@@ -135,21 +121,38 @@
 
 
         <!--!ABOUT en sidebar-->
-        <v-list-item
+        <!-- <v-list-item
           class="text-dark dark:text-white"
           prepend-icon="mdi-square"
           title="About"
           :to="'/views/about'"
           >
-        </v-list-item>
+        </v-list-item> -->
 
       </v-list>
 
+      <v-divider></v-divider>
+
+      <div class="m-auto px-3 cursor-pointer relative bg-slate-100 dark:bg-slate-600">
+        <button
+          class="toogle-theme flex items-center justify-between gap-2 w-full px-2 py-1 rounded-lg my-2"
+          @click="toggleDark()"
+        >
+          <div class="relative border-[1px] border-slate-700 bg-blue-500 dark:bg-slate-900 rounded-full w-[46px] h-[23px]">
+            <span>🔆</span>
+            <span>🌙</span>
+            <div class="swich w-[22px] h-[22px] rounded-full bg-brand shadow top-0 absolute"></div>
+          </div>
+          <span class="text-md text-slate-700 dark:text-slate-200">Claro / Oscuro</span>
+        </button>
+      </div>
+
     </v-navigation-drawer>
 
-    <v-main>
+    <v-main class="bg-slate-200 dark:bg-slate-700">
       <router-view></router-view>
     </v-main>
+
   </v-app>
 </template>
 
@@ -161,6 +164,7 @@
   const toggleDark = useToggle(isDark)
 
   const drawer = ref(null)
+
 </script>
 
 <script>

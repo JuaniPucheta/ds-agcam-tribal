@@ -1,9 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <v-container class="bg-slate-200 dark:bg-slate-700 flex items-center justify-center h-screen">
+  <v-container class="bg-slate-200 dark:bg-slate-700 grid grid-cols-1 items-center h-screen"> <!-- columna -->
     <v-row>
       <v-col cols="12" md="6" lg="4" v-for="(set, index) in messageSets" :key="index">
-        <v-card class="mb-4">
+        <v-card
+          class="
+          mb-4  ease-in-out delay-100 hover:-translate-y-1
+          hover:scale-105 hover:shadow-3xl transition duration-300">
           <v-img
             height="200"
             :src="set.imageSrc"

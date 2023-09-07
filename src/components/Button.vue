@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="bg-slate-200 dark:bg-slate-700 flex justify-center items-center h-screen"> -->
   <div class="bg-slate-200 dark:bg-slate-700 flex justify-center items-center">
-    <div class="grid grid-cols-2 place-content-center items-center gap-4 h-screen my-72">
+    <div class="grid sm:grid-cols-1 lg:grid-cols-2 items-center gap-4 my-4">
       <!--! Columna de botones NORMALES -->
       <div class="pr-10">
         <div class="dark:bg-slate-200 bg-gradient-to-tr from-slate-100 to-slate-200 rounded-lg shadow-md flex flex-col gap-4 p-4">
@@ -18,7 +18,7 @@
         </div>
       </div>
       <!--! Columna de código -->
-      <div class="flex justify-center items-center dark:bg-slate-900">
+      <div class="flex justify-center items-center">
         <div class="p-4 dark:bg-slate-200 bg-gradient-to-tr from-slate-100 to-slate-200 rounded-lg shadow-md">
           <div class="flex justify-end mb-4">
             <button @click="copyToClipboard" class="text-gray-600 hover:text-gray-800">
@@ -80,7 +80,7 @@
         <div class="dark:bg-slate-200 bg-gradient-to-tr from-slate-100 to-slate-200 rounded-lg shadow-md flex flex-col gap-4 p-4">
           <h1 class="text-center text-2xl font-sans mb-4">Vista Previa de Botones Rounded</h1>
           <div class="grid grid-cols-2 gap-4">
-            <v-btn @click="selectedButtonRoundedIndex = 0" :class="buttonRoundedClass(0)" block rounded="0" size="x-large">Rounded 0</v-btn>
+            <v-btn @click="selectedButtonRoundedIndex = 0" :class="buttonRoundedClass(0)" class="text-" block rounded="0" size="x-large">Rounded 0</v-btn>
             <v-btn @click="selectedButtonRoundedIndex = 1" :class="buttonRoundedClass(1)" block rounded="xs" size="x-large">Rounded xs</v-btn>
             <v-btn @click="selectedButtonRoundedIndex = 2" :class="buttonRoundedClass(2)" block rounded="sm" size="x-large">Rounded sm</v-btn>
             <v-btn @click="selectedButtonRoundedIndex = 3" :class="buttonRoundedClass(3)" block size="x-large">Rounded x-large</v-btn>
@@ -177,11 +177,6 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  @apply bg-gradient-to-br from-slate-100 to-slate-200;
-  border-radius: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
 
 pre {
   background: #f4f4f4;
@@ -198,13 +193,6 @@ pre {
     padding: 1em 1.5em;
     display: block;
     word-wrap: break-word;
-}
-
-.card-code {
-  @apply bg-gradient-to-br from-slate-100 to-slate-200;
-  border-radius: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  width: 500px; /* Fija el ancho de la tarjeta */
 }
 
 /* Clase para resaltar el código seleccionado */

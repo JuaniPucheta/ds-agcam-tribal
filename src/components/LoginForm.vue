@@ -6,6 +6,21 @@
       max-width="448"
       rounded="lg"
     >
+    <!-- Enlace del codigo -->
+    <v-card-actions class="justify-center">
+      <v-btn
+        class="text-decoration-none"
+        color="blue"
+        href="https://github.com/vuetifyjs/vuetify/blob/master/packages/docs/src/examples/v-text-field/misc-login-form.vue"
+        target="_blank"
+        text
+      >
+        <v-icon left>mdi-github</v-icon>
+        Código en Github
+      </v-btn>
+    </v-card-actions>
+
+
       <div class="text-subtitle-1 text-medium-emphasis">Correo electrónico</div>
 
       <v-text-field

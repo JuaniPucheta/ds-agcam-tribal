@@ -1,10 +1,8 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="dark:bg-slate-800 h-screen grid items-center">
-
-    <div class="grid grid-cols-2 place-content-center">
+  <div class="dark:bg-slate-800 grid my-5 lg:grid-cols-2 sm:grid-cols-1 items-center">
       <v-card
-        class="mx-auto pa-3 pb-3 dark:bg-slate-300"
+        class="m-auto pa-3 pb-3 dark:bg-slate-300"
         elevation="8"
         width="448"
         rounded="lg"
@@ -21,7 +19,7 @@
 
       <!-- Codigo de Campo 1 -->
       <v-card
-        class="mx-auto mt-4 mb-8 dark:bg-slate-300"
+        class="mx-auto dark:bg-slate-300"
         elevation="8"
         width="448"
         rounded="lg"
@@ -43,7 +41,7 @@
       </v-card>
 
       <v-card
-        class="mx-auto pa-3 pb-3 dark:bg-slate-300"
+        class="m-auto dark:bg-slate-300"
         elevation="8"
         width="448"
         rounded="lg"
@@ -78,13 +76,19 @@
                     :variant="variant.variant"
                   &gt;&lt;/v-text-field&gt;
                   &lt;/v-col&gt;
+
+                    { label: 'Regular', placeholder: 'Placeholder', variant: null },
+                    { label: 'Solo', placeholder: 'Placeholder', variant: 'solo' },
+                    { label: 'Filled', placeholder: 'Placeholder', variant: 'filled' },
+                    { label: 'Outlined', placeholder: 'Placeholder', variant: 'outlined' },
+                    { label: 'Plain', placeholder: 'Placeholder', variant: 'plain' },
+                    { label: 'Underlined', placeholder: 'Placeholder', variant: 'underlined' },
                 </span>
               </code>
             </pre>
       </v-card>
 
     </div>
-  </div>
 </template>
 
 <script>
@@ -113,7 +117,6 @@ pre {
     font-family: monospace;
     font-size: 15px;
     line-height: 1.6;
-    margin-bottom: 1.6em;
     max-width: 100%;
     overflow: auto;
     padding: 1em 1.5em;

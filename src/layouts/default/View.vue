@@ -1,6 +1,7 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <v-main>
-    <router-view />
+    <router-view class="bg-slate-300" />
   </v-main>
 </template>
 

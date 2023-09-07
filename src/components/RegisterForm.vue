@@ -5,11 +5,24 @@
     >
       <v-col>
         <v-card
-          class="mx-auto pa-8 pb-3"
+          class="mx-auto pa-8 pb-"
           max-width="448"
-          title="Registrar Usuario"
           rounded="lg"
           >
+              <!-- Enlace del codigo -->
+              <v-card-actions class="justify-center">
+                <v-btn
+                  class="text-decoration-none"
+                  color="blue"
+                  href="https://github.com/vuetifyjs/vuetify/blob/master/packages/docs/src/examples/v-text-field/misc-custom-validation.vue"
+                  target="_blank"
+                  text
+                >
+                  <v-icon left>mdi-github</v-icon>
+                  Código en Github
+                </v-btn>
+              </v-card-actions>
+
           <v-card-text>
             <v-text-field
               ref="name"

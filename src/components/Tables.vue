@@ -1,13 +1,33 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="dark:bg-slate-700 h-screen flex justify-center items-center">
-    <v-data-table
-      v-model:items-per-page="itemsPerPage"
-      :headers="headers"
-      :items="desserts"
-      item-value="name"
-      class="mx-auto pa-12 pb-8 dark:bg-slate-100"
-    ></v-data-table>
+    <v-row
+        justify="center"
+    >
+      <v-col>
+        <!-- Enlace del codigo -->
+        <v-card-actions class="justify-center">
+          <v-btn
+            class="text-decoration-none"
+            color="blue"
+            href="https://github.com/JuaniPucheta/ds-agcam-tribal/blob/main/src/components/Tables.vue"
+            target="_blank"
+            text
+          >
+            <v-icon left>mdi-github</v-icon>
+            Código en Github
+          </v-btn>
+        </v-card-actions>
+        <v-data-table
+          v-model:items-per-page="itemsPerPage"
+          :headers="headers"
+          :items="desserts"
+          item-value="name"
+          class="mx-auto pa-12 pb-8 dark:bg-slate-200 rounded-md"
+        ></v-data-table>
+
+        </v-col>
+    </v-row>
   </div>
 
 </template>
