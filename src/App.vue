@@ -149,6 +149,27 @@
 
     </v-navigation-drawer>
 
+    <v-app-bar app
+      scroll-behavior="fade-image"
+      image="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+    >
+      <!-- Botón hamburguesa para abrir/cerrar el menú lateral -->
+      <v-app-bar-nav-icon class="bg-slate-100 opacity-90 hover" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <v-toolbar-title class="text-white">Design System - Vue</v-toolbar-title>
+
+      <!-- Search box -->
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+        class="text-white"
+      ></v-text-field>
+
+  </v-app-bar>
+
     <v-main class="bg-slate-200 dark:bg-slate-700">
       <router-view></router-view>
     </v-main>

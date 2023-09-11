@@ -22,7 +22,7 @@
           :headers="headers"
           :items="desserts"
           item-value="name"
-          class="mx-auto pa-12 pb-8 dark:bg-slate-200 rounded-md"
+          class="mx-auto pa-12 pb-8 rounded-md"
         ></v-data-table>
 
         </v-col>

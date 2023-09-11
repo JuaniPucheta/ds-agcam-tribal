@@ -22,7 +22,7 @@
                 :headers="headers"
                 :items="desserts"
                 :sort-by="[{ key: 'calories', order: 'asc' }]"
-                class="mx-auto pa-12 pb-8 dark:bg-slate-100"
+                class="mx-auto pa-12 pb-8"
               >
                 <template v-slot:top>
                   <v-toolbar
@@ -46,7 +46,7 @@
                           class="mb-2"
                           v-bind="props"
                         >
-                          New Item
+                          Nuevo Item
                         </v-btn>
                       </template>
                       <v-card>

@@ -1,10 +1,14 @@
 <template>
-  <v-container class="bg-slate-200 dark:bg-slate-700 grid grid-cols-1 items-center h-screen"> <!-- columna -->
-    <v-row>
-      <v-col cols="12" md="6" lg="4" v-for="(set, index) in messageSets" :key="index">
+  <div class="bg-slate-200 dark:bg-slate-700 min-h-screen flex items-center justify-center">
+    <div class="grid md:grid-cols-3 my-10 gap-4">
+      <div
+        v-for="(set, index) in messageSets"
+        :key="index"
+        class="max-w-md mx-auto"
+      >
         <v-card
-          class="
-          mb-4  ease-in-out delay-100 hover:-translate-y-1
+          class=" lg:w-[350px] md:w-[280px] h-full rounded-lg
+          ease-in-out delay-100 hover:-translate-y-1
           hover:scale-105 hover:shadow-3xl transition duration-300">
           <v-img
             height="200"
@@ -50,9 +54,9 @@
             </v-timeline>
           </v-card-text>
         </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -76,7 +80,7 @@ export default {
             time: '30/08/23',
             message: 'Documentación',
             color: 'grey-darken-1',
-            link: 'https://es.vuejs.org/v2/guide/',
+            link: 'https://v2.vuetifyjs.com/en/components/alerts/',
           },
           {
             from: 'Vuetify',
