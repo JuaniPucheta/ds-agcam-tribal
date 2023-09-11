@@ -7,11 +7,11 @@
          <!-- Enlace del codigo -->
          <v-card-actions class="justify-center">
                 <v-btn
-                  class="text-decoration-none"
-                  color="blue"
-                  href="https://github.com/vuetifyjs/vuetify/blob/master/packages/docs/src/examples/v-text-field/misc-custom-validation.vue"
-                  target="_blank"
-                  text
+                    class="text-decoration-none bg-slate-900"
+                    color="white"
+                    href="https://github.com/JuaniPucheta/ds-agcam-tribal/blob/main/src/components/Tables.vue"
+                    target="_blank"
+                    text
                 >
                   <v-icon left>mdi-github</v-icon>
                   Código en Github

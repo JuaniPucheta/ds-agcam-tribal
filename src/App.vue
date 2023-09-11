@@ -12,14 +12,19 @@
           size="64"
         ></v-avatar>
 
-        <div>messi@messi.com</div>
+        <!-- <div>messi@messi.com</div> -->
       </v-sheet>
 
       <v-divider></v-divider>
 
       <v-list v-model:opened="open" class="bg-slate-200 dark:bg-slate-800">
         <!--!HOME-->
-        <v-list-item class="text-dark dark:text-white" prepend-icon="mdi-home" title="Home" :to="'/'"></v-list-item>
+        <v-list-item a
+          class="text-dark dark:text-white"
+          prepend-icon="mdi-home"
+          title="Home"
+          :to="'/'">
+        </v-list-item>
 
         <!--!COMPONENTS-->
         <v-list-group value="Components">
@@ -37,7 +42,7 @@
               <v-list-item
                 v-bind="props"
                 prepend-icon="mdi-button-cursor"
-                class="text-dark dark:text-white reduce-padding-left"
+                class="text-dark dark:text-white"
                 title="Button"
               ></v-list-item>
             </template>
@@ -73,6 +78,52 @@
               class="text-dark dark:text-white"
             ></v-list-item>
           </v-list-group>
+
+          <!--! COMBOBOX -->
+            <v-list-group value="Combobox">
+              <template v-slot:activator="{ props }">
+                <v-list-item
+                  v-bind="props"
+                  prepend-icon="mdi-check-bold"
+                  title="Combobox"
+                  class="text-dark dark:text-white"
+                ></v-list-item>
+              </template>
+
+              <v-list-item
+                v-for="([title, icon, to], i) in combobox"
+                :key="i"
+                :title="title"
+                :prepend-icon="icon"
+                :value="title"
+                :to="to"
+                class="text-dark dark:text-white"
+              ></v-list-item>
+            </v-list-group>
+          <!--! COMBOBOX -->
+
+          <!--! FILE INPUT -->
+            <v-list-group value="fileinput">
+              <template v-slot:activator="{ props }">
+                <v-list-item
+                  v-bind="props"
+                  prepend-icon="mdi-check-bold"
+                  title="File Input"
+                  class="text-dark dark:text-white"
+                ></v-list-item>
+              </template>
+
+              <v-list-item
+                v-for="([title, icon, to], i) in fileinput"
+                :key="i"
+                :title="title"
+                :prepend-icon="icon"
+                :value="title"
+                :to="to"
+                class="text-dark dark:text-white"
+              ></v-list-item>
+            </v-list-group>
+          <!--! FILE INPUT -->
 
           <v-list-group value="Auth">
             <template v-slot:activator="{ props }">
@@ -119,6 +170,29 @@
 
         </v-list-group>
 
+        <!--!FORMS en sidebar-->
+        <v-list-group value="Forms">
+          <template v-slot:activator="{ props }">
+              <v-list-item
+                v-bind="props"
+                prepend-icon="mdi-form-select"
+                class="text-dark dark:text-white reduce-padding-left"
+                title="Forms"
+              ></v-list-item>
+            </template>
+
+            <v-list-item
+              v-for="([title, icon, to], i) in forms"
+              :key="i"
+              :title="title"
+              :to=to
+              :prepend-icon="icon"
+              :value="title"
+              class="text-dark dark:text-white"
+            ></v-list-item>
+
+        </v-list-group>
+
 
         <!--!ABOUT en sidebar-->
         <!-- <v-list-item
@@ -153,22 +227,10 @@
       scroll-behavior="fade-image"
       image="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
     >
-      <!-- Botón hamburguesa para abrir/cerrar el menú lateral -->
       <v-app-bar-nav-icon class="bg-slate-100 opacity-90 hover" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
       <v-toolbar-title class="text-white">Design System - Vue</v-toolbar-title>
 
-      <!-- Search box -->
-      <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Search"
-        single-line
-        hide-details
-        class="text-white"
-      ></v-text-field>
-
-  </v-app-bar>
+    </v-app-bar>
 
     <v-main class="bg-slate-200 dark:bg-slate-700">
       <router-view></router-view>
@@ -193,6 +255,14 @@
   export default {
     name: 'App',
 
+    computed: {
+      filteredMenuItems() {
+        const search = this.searchQuery.toLowerCase();
+        return this.menuItems.filter((item) =>
+          item.title.toLowerCase().includes(search)
+        );
+      },
+    },
     data: () => ({
       cards: ['Today', 'Yesterday'],
       drawer: null,
@@ -203,6 +273,12 @@
       inputs: [
         ['Some Inputs', 'mdi-account-multiple-outline', '/components/inputs'],
       ],
+      combobox: [
+        ['Multiple', 'mdi-check-all', '/components/combobox'],
+      ],
+      fileinput: [
+        ['Files', 'mdi-file-upload', '/components/file-input'],
+      ],
       cruds: [
         ['Login', 'mdi-login', '/components/login-form'],
         ['Register', 'mdi-account-plus', '/components/register-form'],
@@ -211,15 +287,18 @@
       tables: [
         ['Tables', 'mdi-table', '/components/table'],
         ['TablesActions', 'mdi-table-cog', '/components/table-actions']
+      ],
+      forms: [
+        ['Form1', 'mdi-form-textbox', '/components/form-1'],
+        ['Modals', 'mdi-plus-box-outline', '/components/modals'],
       ]
     }),
   }
 </script>
 
 <style>
-
-  .v-list-group__items .v-list-item {
-    padding-inline-start: 16px !important;
-  }
-
+/* Anula el estilo que quieres eliminar */
+.v-navigation-drawer .v-list-group__items .v-list-item {
+  padding-inline-start: 30px !important;
+}
 </style>

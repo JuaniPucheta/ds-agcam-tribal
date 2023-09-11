@@ -41,6 +41,16 @@ const routes = [
         component: () => import('../components/InputsPage.vue'),
       },
       {
+        path: '/components/combobox',
+        name: 'ComboboxPage',
+        component: () => import('../components/ComboboxPage.vue'),
+      },
+      {
+        path: '/components/file-input',
+        name: 'FileInputPage',
+        component: () => import('../components/FileInputPage.vue'),
+      },
+      {
         path: '/components/table',
         name: 'TablesPage',
         component: () => import('../components/TablesPage.vue'),
@@ -49,6 +59,16 @@ const routes = [
         path: '/components/table-actions',
         name: 'TableActionPage',
         component: () => import('../components/TablesActionsPage.vue'),
+      },
+      {
+        path: '/components/form-1',
+        name: 'Form1Page',
+        component: () => import('../components/Form1Page.vue'),
+      },
+      {
+        path: '/components/modals',
+        name: 'ModalsPage',
+        component: () => import('../components/ModalsPage.vue'),
       },
       {
         path: '/views/about',
